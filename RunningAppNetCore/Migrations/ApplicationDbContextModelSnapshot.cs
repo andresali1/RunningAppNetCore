@@ -44,7 +44,7 @@ namespace RunningAppNetCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("RunningAppNetCore.Models.AppUser", b =>
@@ -65,7 +65,7 @@ namespace RunningAppNetCore.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("AppUser");
+                    b.ToTable("AppUser", (string)null);
                 });
 
             modelBuilder.Entity("RunningAppNetCore.Models.Club", b =>
@@ -103,7 +103,7 @@ namespace RunningAppNetCore.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Clubs");
+                    b.ToTable("Clubs", (string)null);
                 });
 
             modelBuilder.Entity("RunningAppNetCore.Models.Race", b =>
@@ -141,7 +141,7 @@ namespace RunningAppNetCore.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Races");
+                    b.ToTable("Races", (string)null);
                 });
 
             modelBuilder.Entity("RunningAppNetCore.Models.AppUser", b =>
