@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RunningAppNetCore.Data;
 using RunningAppNetCore.Interfaces;
 using RunningAppNetCore.Models;
 

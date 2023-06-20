@@ -22,7 +22,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Club 1",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
+                            Description = "Esta es la descripción para el primer Club",
                             ClubCategory = ClubCategory.City,
                             Address = new Address()
                             {
@@ -35,7 +35,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Club 2",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
+                            Description = "Esta es la descripción para el segundo Club",
                             ClubCategory = ClubCategory.Endurance,
                             Address = new Address()
                             {
@@ -48,7 +48,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Club 3",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
+                            Description = "Esta es la descripción para el tercer Club",
                             ClubCategory = ClubCategory.Trail,
                             Address = new Address()
                             {
@@ -61,7 +61,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Club 4",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first club",
+                            Description = "Esta es la descripción para el cuarto Club",
                             ClubCategory = ClubCategory.City,
                             Address = new Address()
                             {
@@ -82,7 +82,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Race 1",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first race",
+                            Description = "Esta es la descripción para la primera Carrera",
                             RaceCategory = RaceCategory.Marathon,
                             Address = new Address()
                             {
@@ -95,7 +95,7 @@ namespace RunningAppNetCore.Data
                         {
                             Title = "Running Race 2",
                             Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                            Description = "This is the description of the first race",
+                            Description = "Esta es la descripción para la segunda Carrera",
                             RaceCategory = RaceCategory.Ultra,
                             AddressId = 5,
                             Address = new Address()

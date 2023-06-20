@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RunningAppNetCore.Data;
 using RunningAppNetCore.Interfaces;
 using RunningAppNetCore.Models;
 
@@ -31,6 +29,11 @@ namespace RunningAppNetCore.Controllers
             }
 
             return View(club);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }
