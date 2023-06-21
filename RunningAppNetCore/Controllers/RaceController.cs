@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RunningAppNetCore.Interfaces;
 using RunningAppNetCore.Models;
+using RunningAppNetCore.Repository;
 
 namespace RunningAppNetCore.Controllers
 {
@@ -29,6 +30,23 @@ namespace RunningAppNetCore.Controllers
             }
 
             return View(race);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Race race)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(race);
+            }
+
+            _raceRepository.Add(race);
+            return RedirectToAction("Index");
         }
     }
 }
