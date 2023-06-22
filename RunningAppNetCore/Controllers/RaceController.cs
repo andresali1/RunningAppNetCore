@@ -29,10 +29,7 @@ namespace RunningAppNetCore.Controllers
         {
             Race? race = await _raceRepository.GetByIdAsync(id);
 
-            if(race == null)
-            {
-                return RedirectToAction("Error", "Home");
-            }
+            if(race == null) return View("Error");
 
             return View(race);
         }
@@ -83,7 +80,7 @@ namespace RunningAppNetCore.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var race = await _raceRepository.GetByIdAsync(id);
-            if (race == null) return RedirectToAction("Error", "Home");
+            if (race == null) return View("Error");
 
             var raceVM = new EditRaceViewModel
             {
@@ -147,6 +144,39 @@ namespace RunningAppNetCore.Controllers
             {
                 return View(raceVM);
             }
+        }
+
+        //Get: Delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var raceDetails = await _raceRepository.GetByIdAsync(id);
+            if (raceDetails == null) return View("Error");
+            return View(raceDetails);
+        }
+
+        /// <summary>
+        /// Method to delete a race from db
+        /// </summary>
+        /// <param name="id">Id of the race</param>
+        /// <returns></returns>
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteRace(int id)
+        {
+            var raceDetails = await _raceRepository.GetByIdAsync(id);
+            if (raceDetails == null) return View("Error");
+
+            try
+            {
+                await _photoService.DeletePhotoAsync(raceDetails.Image);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Could not delete photo");
+                return View(raceDetails);
+            }
+
+            _raceRepository.Delete(raceDetails);
+            return RedirectToAction("Index");
         }
     }
 }

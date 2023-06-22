@@ -28,7 +28,7 @@ namespace RunningAppNetCore.Controllers
         {
             Club? club = await _clubRepository.GetByIdAsync(id);
 
-            if (club == null) return RedirectToAction("Error", "Home");
+            if (club == null) return View("Error");
 
             return View(club);
         }
@@ -79,7 +79,7 @@ namespace RunningAppNetCore.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var club = await _clubRepository.GetByIdAsync(id);
-            if (club == null) return RedirectToAction("Error", "Home");
+            if (club == null) return View("Error");
 
             var clubVM = new EditClubViewModel
             {
@@ -143,6 +143,39 @@ namespace RunningAppNetCore.Controllers
             {
                 return View(clubVM);
             }
+        }
+
+        //Get: Delete
+        public async Task<IActionResult> Delete(int id)
+        {
+            var clubDetails = await _clubRepository.GetByIdAsync(id);
+            if (clubDetails == null) return View("Error");
+            return View(clubDetails);
+        }
+
+        /// <summary>
+        /// Method to delete a club from db
+        /// </summary>
+        /// <param name="id">Id of the club</param>
+        /// <returns></returns>
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteClub(int id)
+        {
+            var clubDetails = await _clubRepository.GetByIdAsync(id);
+            if (clubDetails == null) return View("Error");
+
+            try
+            {
+                await _photoService.DeletePhotoAsync(clubDetails.Image);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Could not delete photo");
+                return View(clubDetails);
+            }
+
+            _clubRepository.Delete(clubDetails);
+            return RedirectToAction("Index");
         }
     }
 }

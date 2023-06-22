@@ -11,6 +11,7 @@ Migration Commands
 Add-Migration InitialCreate
 Update-Database
 Add-Migration Identity
+Add-Migration NullAddressFix
 
 (PowerShell -> cd Project Root RunningAppNetCore)
 dotnet run seeddata
