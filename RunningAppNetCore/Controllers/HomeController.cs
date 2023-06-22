@@ -13,16 +13,19 @@ namespace RunningAppNetCore.Controllers
             _logger = logger;
         }
 
+        //Get: Index
         public IActionResult Index()
         {
             return View();
         }
 
+        //Not Used
         public IActionResult Privacy()
         {
             return View();
         }
 
+        //Get: Error
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

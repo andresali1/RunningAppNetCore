@@ -5,6 +5,6 @@ namespace RunningAppNetCore.Interfaces
     public interface IPhotoService
     {
         Task<ImageUploadResult> AddPhotoAsync(IFormFile file);
-        Task<DeletionResult> DeletePhotoAsync();
+        Task<DeletionResult> DeletePhotoAsync(string publicId);
     }
 }
