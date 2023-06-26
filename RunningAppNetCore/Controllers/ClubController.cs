@@ -9,11 +9,13 @@ namespace RunningAppNetCore.Controllers
     {
         private readonly IClubRepository _clubRepository;
         private readonly IPhotoService _photoService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
+        public ClubController(IClubRepository clubRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
         {
             _clubRepository = clubRepository;
             _photoService = photoService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         //Get: Index
@@ -36,7 +38,9 @@ namespace RunningAppNetCore.Controllers
         //Get: Create
         public IActionResult Create()
         {
-            return View();
+            var curUserId = _httpContextAccessor.HttpContext?.User.GetUserId();
+            var createClubViewModel = new CreateClubViewModel { AppUserId = curUserId ?? "" };
+            return View(createClubViewModel);
         }
 
         /// <summary>
@@ -56,12 +60,14 @@ namespace RunningAppNetCore.Controllers
                     Title = clubVM.Title,
                     Description = clubVM.Description,
                     Image = result.Url.ToString(),
+                    AppUserId = clubVM.AppUserId,
                     Address = new Address
                     {
                         Street = clubVM.Address.Street,
                         City = clubVM.Address.City,
                         Department = clubVM.Address.Department
-                    }
+                    },
+                    ClubCategory = clubVM.ClubCategory
                 };
 
                 _clubRepository.Add(club);
