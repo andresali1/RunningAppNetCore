@@ -1,0 +1,32 @@
+﻿@using RunningAppNetCore.ViewModels;
+@model EditUserDashboardViewModel
+
+<form method="post" asp-action="EditUserProfile" enctype="multipart/form-data">
+    <input type="hidden" id="Id" name="Id" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Pace">Ritmo</label>
+        <input asp-for="Pace" class="form-control" placeholder="Pace">
+        <span asp-validation-for="Pace" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Mileage">Millage</label>
+        <input asp-for="Mileage" class="form-control" placeholder="Mileage">
+        <span asp-validation-for="Mileage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City">Ciudad</label>
+        <input asp-for="City" class="form-control" placeholder="City">
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Department">Departamento</label>
+        <input asp-for="Department" class="form-control" placeholder="Department">
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Image">Imagen de Perfil</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

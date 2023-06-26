@@ -10,6 +10,12 @@ namespace RunningAppNetCore.Models
 
         public int? Mileage { get; set; }
 
+        public string? ProfileUmageUrl { get; set; }
+
+        public string? City { get; set; }
+
+        public string? Department { get; set; }
+
         [ForeignKey("Address")]
         public int? AddressId { get; set; }
 

@@ -12,6 +12,7 @@ Add-Migration InitialCreate
 Update-Database
 Add-Migration Identity
 Add-Migration NullAddressFix
+Add-Migration AddCityStateProfileImage
 
 (PowerShell -> cd Project Root RunningAppNetCore)
 dotnet run seeddata
