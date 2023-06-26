@@ -3,7 +3,7 @@ Proyecto MVC básico con Net 6 y Entity Framework, emula un crud simple de una p
 
 ### Tecnologías Utilizadas
 :keyboard: C# 10  
-:keyboard: .Net 6 
+:keyboard: .Net 6  
 :minidisc: SqlServer 2019  
 :computer: Visual Studio 2022  
 
