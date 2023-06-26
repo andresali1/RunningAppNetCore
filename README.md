@@ -1,5 +1,5 @@
 # RunningAppNetCore
-Proyecto MVC básico con Net 6 y Entity Framework, emula un crud simple de una pagina que funciona como red social de corredores  
+Proyecto MVC básico con Net 6 y Entity Framework; crud simple de una pagina que funciona como red social de corredores  
 
 ### Tecnologías Utilizadas
 :keyboard: C# 10  
